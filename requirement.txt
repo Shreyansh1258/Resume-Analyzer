@@ -1,3 +1,7 @@
 pdfplumber
 nltk
-scikit-learnc
+flask
+pdfplumber
+nltk
+scikit-learn
+spacy
