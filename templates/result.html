@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        .progress {
+            width: 100%;
+            background: #ddd;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: green;
+            width: {{ score }}%;
+            border-radius: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            padding: 5px;
+        }
+
+        .good {
+            color: green;
+        }
+
+        .bad {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Resume Analysis Result</h1>
+    <h2>Score : {{ score }}/100</h2>
+     <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+    <h3>Skills Found:</h3>
+    <ul>
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Missing Skills</h3>
+    <ul>
+        {% for skill in missing %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+</body>
+</html>
