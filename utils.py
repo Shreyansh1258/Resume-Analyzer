@@ -31,25 +31,24 @@ def process_resume(file_path):
 
 
 def extract_skills(tokens):
-    skills_list = [
-    "python",
-    "java",
-    "sql",
-    "machine learning",
-    "data science",
-    "react",
-    "aws",
-    "docker"
-    ]
-    cleaned_text = " ".join(tokens)
+    skills_dict = {
+    "programming": ["python", "java", "c++", "javascript"],
+    "data": ["sql", "machine learning", "data science"],
+    "web": ["html", "css", "react", "node"],
+    "tools": ["aws", "docker", "git", "linux"],
+    "soft": ["communication", "leadership", "teamwork"]
+    }
+    text = " ".join(tokens)
     
-    found_skills = set()
+    found = {}
 
-    for skill in skills_list:
-        if skill in cleaned_text:
-            found_skills.add(skill)
-    
-    return found_skills
+    for category, skills in skills_dict.items():
+        found[category] = []
+        for skill in skills:
+            if skill in text:
+                found[category].append(skill)
+
+    return found
 
 
 def calculate_score(skills):

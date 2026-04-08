@@ -13,8 +13,10 @@ print("\n===== RESUME ANALYSIS =====")
 print(f"\nResume Score: {score}/100")
 
 print("\nSkills Found:")
-for skill in skills:
-    print(f"✔ {skill}")
+for category, items in skills.items():
+    print(f"\n{category.upper()}:")
+    for skill in items:
+        print("-", skill)
 
 print("\nMissing Skills:")
 for skill in missing:
