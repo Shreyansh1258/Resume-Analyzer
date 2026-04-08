@@ -32,14 +32,14 @@ def process_resume(file_path):
 
 def extract_skills(tokens):
     skills_dict = {
-    "programming": ["python", "java", "c++", "javascript"],
-    "data": ["sql", "machine learning", "data science"],
-    "web": ["html", "css", "react", "node"],
-    "tools": ["aws", "docker", "git", "linux"],
-    "soft": ["communication", "leadership", "teamwork"]
+        "programming": ["python", "java", "c++", "javascript"],
+        "data": ["sql", "machine learning", "data science"],
+        "web": ["html", "css", "react", "node"],
+        "tools": ["aws", "docker", "git", "linux"],
+        "soft": ["communication", "leadership", "teamwork"]
     }
-    text = " ".join(tokens)
-    
+
+    text = " ".join(tokens).lower()
     found = {}
 
     for category, skills in skills_dict.items():

@@ -13,11 +13,19 @@ print("\n===== RESUME ANALYSIS =====")
 print(f"\nResume Score: {score}/100")
 
 print("\nSkills Found:")
+
 for category, items in skills.items():
-    print(f"\n{category.upper()}:")
-    for skill in items:
-        print("-", skill)
+    if items:  
+        print(f"\n{category.upper()}:")
+        for skill in items:
+            print("-", skill)
 
 print("\nMissing Skills:")
-for skill in missing:
-    print(f"✘ {skill}")
+all_skills = []
+for category in skills.values():
+    all_skills.extend(category)
+
+missing = [skill for skill in [
+    "python", "java", "sql", "machine learning",
+    "data science", "react", "aws", "docker"
+] if skill not in all_skills]
