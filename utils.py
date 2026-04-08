@@ -53,9 +53,14 @@ def extract_skills(tokens):
 
 def calculate_score(skills):
     score = 0
-    score+=len(skills)*10
-    if score>50:
-        score = 50
+
+   
+    total_skills = sum(len(v) for v in skills.values())
+
+    score += total_skills * 10
+
+    if score > 100:
+        score = 100
 
     return score
 
@@ -67,10 +72,13 @@ def find_missing_skills(found_skills):
         "data science", "react", "aws", "docker"
     ]
 
-    missing = []
-    for skill in all_skills:
-        if skill not in found_skills:
-            missing.append(skill)
+    
+    detected = []
+    for category in found_skills.values():
+        detected.extend(category)
+
+   
+    missing = [skill for skill in all_skills if skill not in detected]
 
     return missing
 

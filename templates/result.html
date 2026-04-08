@@ -58,11 +58,17 @@
         <div class="progress-bar"></div>
     </div>
     <h3>Skills Found:</h3>
-    <ul>
-        {% for skill in skills %}
-        <li>{{ skill }}</li>
-        {% endfor %}
-    </ul>
+
+    {% for category, items in skills.items() %}
+        {% if items %}
+            <h4>{{ category }}</h4>
+            <ul>
+                {% for skill in items %}
+                    <li class="good">✔ {{ skill }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
     <h3>Missing Skills</h3>
     <ul>
         {% for skill in missing %}
