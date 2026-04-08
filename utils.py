@@ -1,6 +1,7 @@
 
 #this file contains all the resuable function for project 
-
+import nltk
+nltk.download('stopwords')
 
 def process_resume(file_path):
     import pdfplumber
